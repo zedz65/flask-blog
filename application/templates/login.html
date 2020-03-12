@@ -1,6 +1,7 @@
 {% extends "layout.html" %}    <!-- whatever layout includes will be here. navbar title etc -->
 
 {% block body_content %}
+<p>Log in mate </p>
     <div class='form'>
         <form method='POST' action=''>
             {{ form.hidden_tag() }}
@@ -39,4 +40,4 @@
         </form>
     </div>
 
-{% endblock %}
+{% endblock body_content %}

@@ -1,18 +1,62 @@
 <html>
 
 <head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(64, 144, 235);
+}
+        
+li {
+    float: left;
+}
+        
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+        
+li a:hover {
+    background-color: #333;
+    }
+
+
+.active {
+  background-color: #111;
+}
+
+</style>
 
 <title> {{ title }} </title>
 </head>
 
 
-<body>
-<a href="{{ url_for('home') }}">home</a> <br />
-<a href="{{ url_for('about') }}">about</a> <br />
-<a href="{{ url_for('register') }}">register</a> <br />
-<a href="{{ url_for('post') }}">post</a> <br />
-<a href="{{ url_for('login') }}">login</a> <br />
+<body style="background-color:rgb(239, 244, 245);">
+<ul>
+<div class=navbar>
+    {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('post') }}">Post</a></li>
+        <li style="float:right"> <a class="active" href="{{ url_for('logout') }}">Logout</a></li>
+        <li><a href="{{ url_for('account') }}">Account</a></li></ul> 
+    {% else %}
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
 
+
+    </ul>
+
+    {% endif %}
+</div>
 {% block body_content %}
 
 

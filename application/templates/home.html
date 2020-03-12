@@ -1,18 +1,19 @@
 {% extends "layout.html" %}
 {% block body_content %}
-<!-- this is a very simple html file to demonstrate the template functionality -->
+
 <h1>{{ title }}</h1>
 
 
 <p>Welcome to this web app!</p>
 <!-- for loop to display the loop more for more entries -->
 {% for post in post %} 
-    <div>
-        <h3>{{ post.title }}</h3>
-        <h3>{{ post.first_name }}</h3>
-        <h3>{{ post.last_name }}</h3>
-        <h3>{{ post.content }}</h3>
-    </div>
+<div>
+    <h3>{{ post.title }}</h3>
+    <span>by <i>{{ post.author.first_name }} {{ post.author.last_name }}</i></span>
+    <span>on the <i>{{ post.date_posted }}</i></span>
+    <p>{{ post.content }}</p>
+</div>
+
 {% endfor %}
 
 
