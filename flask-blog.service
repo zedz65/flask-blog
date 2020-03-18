@@ -2,9 +2,9 @@
 Description=Flask Application (point2repo)
 [Service]
 User=pythonadm
-WorkingDirectory=/opt/flask-blog
+WorkingDirectory=/opt/flask-app
 ExecStart=/bin/bash \
-	-c 'cd /opt/flask-blog && \
+	-c 'cd /opt/flask-app && \
 	source ./venv/bin/activate && \
 	python ./app.py'
 Environment=SECRET_KEY={{SECRET_KEY}}
